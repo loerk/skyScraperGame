@@ -1,6 +1,6 @@
-@use "../base/" as b;
+@use "../base/variables" as b;
 
-body {
+body, html {
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -12,27 +12,26 @@ body {
   width: 100%;
   height: 100%;
 
-  #score {
-    position: absolute;
-    top:20px;
-    width: 100%;
-    text-align: center;
-	font-size: 10vh;
-	transition: transform 0.5s ease;
-	color: b.$color-dark;
-	transform: translateY(-200px) scale(1);
+  	#score {
+		position: absolute;
+		top:20px;
+		width: 100%;
+		text-align: center;
+		font-size: 10vh;
+		transition: transform 0.5s ease;
+		color: b.$color-dark;
+		transform: translateY(-200px) scale(1);
 	}
 
 	#game{
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 	}
 	
-	.game-over
-	{
+	.game-over {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -43,24 +42,21 @@ body {
 		align-items: center;
 		justify-content: center;
 		
-		*
-		{
+		* {
 			transition: opacity 0.5s ease, transform 0.5s ease;
 			opacity: 0;
-			transform: translatey(-50px);
-			color: $color-dark;
+			transform: translateY(-50px);
+			color: b.$color-dark;
 		}
 		
-		h2
-		{
+		h2{
 			margin: 0;
 			padding: 0;
 			font-size: 40px;
 		}
 	}
 	
-	.game-ready
-	{
+	.game-ready {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -71,22 +67,19 @@ body {
 		align-items: center;
 		justify-content: space-around;
 		
-		#start-button
-		{
+		#start-button {
 			transition: opacity 0.5s ease, transform 0.5s ease;
 			opacity: 0;
 			transform: translatey(-50px);
-			
-			border: 3px solid $color-dark;
+			border: 3px solid b.$color-dark;
 			padding: 10px 20px;
 			background-color: transparent;
-			color: $color-dark;
+			color: b.$color-dark;
 			font-size: 30px;
 		}
 	}
 	
-	#instructions
-	{
+	#instructions {
 		position: absolute;
 		width: 100%;
 		top: 16vh;
@@ -96,59 +89,44 @@ body {
 		
 		opacity: 0;
 		
-		&.hide
-		{
+		&.hide {
 			opacity: 0 !important;
 		}
 	}
 	
-	&.playing, &.resetting
-	{
-		#score
-		{
+	&.playing, &.resetting {
+		#score {
 			transform: translatey(0px) scale(1);
 		}
 	}
 	
-	&.playing
-	{
-		#instructions
-		{
+	&.playing {
+		#instructions {
 			opacity: 1;
 		}
 	}
 	
-	&.ready
-	{
-		
-		
-		.game-ready
-		{
-			#start-button
-			{
+	&.ready {
+		.game-ready {
+			#start-button {
 				opacity: 1;
 				transform: translatey(0);
 			}
 		}
 	}
 	
-	&.ended
-	{
-		#score
-		{
+	&.ended {
+		#score {
 			transform: translatey(6vh) scale(1.5);
 		}
 		
-		.game-over
-		{
-			*
-			{
+		.game-over {
+			* {
 				opacity: 1;
 				transform: translatey(0);
 			}
 			
-			p
-			{
+			p {
 				transition-delay: 0.3s;
 			}
 		}
